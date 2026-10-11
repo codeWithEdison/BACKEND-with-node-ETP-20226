@@ -1,0 +1,18 @@
+const mysql =  require('mysql2')
+
+const db = mysql.createConnection({
+    host:process.env.DB_HOST,
+    user:process.env.DB_USER,
+    password:process.env.PASSWORD,
+    database:process.env.DB_NAME
+})
+
+db.connect( (error)=>{
+    if(error){
+        console.log(" databse  connection failed ",  error.message);
+    } 
+    console.log(" mysql connected sucessfull");
+    
+});
+
+module.exports = db; 
